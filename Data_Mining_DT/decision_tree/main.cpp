@@ -12,21 +12,6 @@ const static long TOTAL_LINE = 494021;
 const static double LOG2 = 0.693147;
 
 /***
- * 计算连续属性中最大值和最小值
- */
-void max_min(vector<double>::const_iterator beg,
-		vector<double>::const_iterator end, double *maxVal, double *minVal) {
-	*maxVal = *beg;
-	*minVal = *beg;
-	for (vector<double>::const_iterator iter = beg; iter != end; iter++) {
-		if (*maxVal < *iter)
-			*maxVal = *iter;
-		if (*minVal > *iter)
-			*minVal = *iter;
-	}
-}
-
-/***
  * 计算熵
  */
 double calcEntropy(vector<double>::const_iterator beg,
@@ -50,6 +35,7 @@ void calcPro(vector<string>::const_iterator beg,
 		pro_label->push_back(pro);
 	}
 }
+//计算一个属性的熵值
 double calcOneAttrEntropy(vector<string>::const_iterator beg_attr,
 		vector<string>::const_iterator end_attr,const vector<string> & labelVec) {
 	map<string, map<string, int> > countAttr; //记录属性中每个不同之对应的不同标签的个数
@@ -88,8 +74,7 @@ double calcOneAttrEntropy(vector<string>::const_iterator beg_attr,
 	}
 	return returnEntropy;
 }
-
-
+//计算熵增最大的点
 int computeMaxEntropyPoint(vector<vector<string> >::const_iterator beg,
 		vector<vector<string> >::const_iterator end,
 		const vector<string> &labelVec) {
@@ -101,6 +86,7 @@ int computeMaxEntropyPoint(vector<vector<string> >::const_iterator beg,
 	int i = 0;
 	for (vector<vector<string> >::const_iterator it = beg; it != end; it++) {
 		double ent = calcOneAttrEntropy(it->begin(), it->end(), labelVec);
+		//cout << "ent" << i << " = " << ent << endl;
 		double gain = infos-ent;
 		if (gain > max_ent) {
 			max_ent = gain;
@@ -110,42 +96,60 @@ int computeMaxEntropyPoint(vector<vector<string> >::const_iterator beg,
 	}
 	return max_index;
 }
-
-//划分属性，并删除原有属性数据，释放内存
-void splitAttr(vector<vector<string> >::iterator beg,
-		vector<vector<string> >::iterator end, vector<int> &symList,
-		vector<vector<string> > *result) {
-	int i = 0;
-	for (vector<vector<string> >::iterator iter = beg; iter != end; iter++) {
-		if (find(symList.begin(), symList.end(), i) == symList.end()) {
-			vector<string> dataSplit;
-			splitAttrTwo(iter->begin(), iter->end(), &dataSplit);
-			result->push_back(dataSplit);
-		} else {
-			vector<string> dataSplit(iter->begin(), iter->end());
-			result->push_back(dataSplit);
+//查找出现次数最多的标签，如果第二多的标签数小于给的阈值，返回次数最多的标签，否则返回空
+string mostLabel(map<string,int>::const_iterator beg,map<string,int>::const_iterator end,int threshold){
+	int max = 0;
+	string max_label = "";
+	int second = 0;
+	string second_label = "";
+	for(map<string,int>::const_iterator it = beg;it!=end;it++){
+		if(it->second > second){
+			second = it->second;
+			second_label = it->first;
 		}
-		i++;
-		iter->clear(); //清除原有数据，释放内存
+		if(second>max){
+			int tmp = max;
+			max = second;
+			second = tmp;
+			max_label = second_label;
+		}
 	}
+	if(second>threshold)
+		max_label = "";
+	return max_label;
+}
+
+void CreateTree(TreeNode*treeHead,vector<vector<string> >&dataVec,vector<string>&labelVec,vector<int> &readColumnNum){
+
 }
 
 int main() {
 	string tf =
-			"/home/huaa/workspace/Data_Mining_NB/naive_bayes/kddcup.data_10_percent.txt"; //train_file
-	string pf = "/home/huaa/workspace/Data_Mining_NB/naive_bayes/corrected"; //predict_file
+			"/home/huaa/Source_File/Data_Mining/kddcup.data_10_percent.txt"; //train_file
+	string pf = "/home/huaa/Source_File/Data_Mining/corrected"; //predict_file
 
 	int a[7] = { 1, 2, 3, 6, 11, 20, 21 }; //数据部分离散变量位置
 	vector<int> symbolicList(a, a + 7);
 	vector<vector<string> > dataVec;
 	vector<string> labelVec;
 	vector<double> pro_label;
-	if (!readfile_with_column(tf, &dataVec, &labelVec))
-		return 0; //按列读取文件
-	vector<vector<string> > result;
-	splitAttr(dataVec.begin(), dataVec.end(), symbolicList, &result);
-	int index = computeMaxEntropyPoint(result.begin(),result.end(),labelVec);
-	cout << "index = " << index << endl;
+//	if (!readfile_with_column(tf, &dataVec, &labelVec))
+//		return 0; //按列读取文件
+//	vector<vector<string> > result;
+//	splitAttr(dataVec.begin(), dataVec.end(), symbolicList, &result);
+
+
+
+//	map<string,int> tmostLabel;
+//	string str[5] = {"a","b","c","d","e"};
+//	int num[5] = {10,20,13,300,40};
+//	for(int i = 0;i<5;i++)
+//		tmostLabel[str[i]] = num[i];
+//	string res_str = mostLabel(tmostLabel.begin(),tmostLabel.end(),80);
+//	cout << res_str << endl;
+
+//	int index = computeMaxEntropyPoint(result.begin(),result.end(),labelVec);
+//	cout << "index = " << index << endl;
 
 //	int i = 0;
 //	double max_ent = 0.0;

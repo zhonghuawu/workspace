@@ -15,12 +15,12 @@
 using namespace std;
 
 struct TreeNode{
-	int h_sAttribution;
-
-	vector<TreeNode*> h_vChildren;
+	int h_iAttribution;
+	string h_sLabel;//作为叶子节点时的类别
+//	map<string,int> h_mLabelNum;//每个类的数目，
+	vector<TreeNode*> h_vChildren;//子节点列表
 };
 
-TreeNode * CreateTreeNode(int value);
-
+//TreeNode* CreateTreeNode(int value);
 
 #endif /* TREE_H_ */

@@ -111,18 +111,6 @@ double mean(vector<double>::const_iterator beg,
 	sum = sum / count;
 	return sum;
 }
-void splitAttrTwo(vector<string>::const_iterator beg,
-		vector<string>::const_iterator end, vector<string> *result) {
-	vector<double> dataFloat;
-	atof_Vec(beg, end, &dataFloat);
-	double ave = mean(dataFloat.begin(), dataFloat.end());
-	for (vector<double>::const_iterator iter = dataFloat.begin();
-			iter != dataFloat.end(); iter++)
-		if (*iter >= ave)
-			result->push_back("1");
-		else
-			result->push_back("0");
-}
 
 void atof_Vec(vector<string>::const_iterator beg,
 		vector<string>::const_iterator end, vector<double> *result) {
@@ -156,6 +144,53 @@ bool splitAttrContinuous(vector<double>::const_iterator beg,
 			retainAttr.insert(*iter);
 	}
 	return true;
+}
+
+/***
+ * 计算连续属性中最大值和最小值
+ */
+void max_min(vector<double>::const_iterator beg,
+		vector<double>::const_iterator end, double *maxVal, double *minVal) {
+	*maxVal = *beg;
+	*minVal = *beg;
+	for (vector<double>::const_iterator iter = beg; iter != end; iter++) {
+		if (*maxVal < *iter)
+			*maxVal = *iter;
+		if (*minVal > *iter)
+			*minVal = *iter;
+	}
+}
+
+void splitAttrTwo(vector<string>::const_iterator beg,
+		vector<string>::const_iterator end, vector<string> *result) {
+	vector<double> dataFloat;
+	atof_Vec(beg, end, &dataFloat);
+	double ave = mean(dataFloat.begin(), dataFloat.end());
+	for (vector<double>::const_iterator iter = dataFloat.begin();
+			iter != dataFloat.end(); iter++)
+		if (*iter >= ave)
+			result->push_back("1");
+		else
+			result->push_back("0");
+}
+
+//划分属性，并删除原有属性数据，释放内存
+void splitAttr(vector<vector<string> >::iterator beg,
+		vector<vector<string> >::iterator end, vector<int> &symList,
+		vector<vector<string> > *result) {
+	int i = 0;
+	for (vector<vector<string> >::iterator iter = beg; iter != end; iter++) {
+		if (find(symList.begin(), symList.end(), i) == symList.end()) {
+			vector<string> dataSplit;
+			splitAttrTwo(iter->begin(), iter->end(), &dataSplit);
+			result->push_back(dataSplit);
+		} else {
+			vector<string> dataSplit(iter->begin(), iter->end());
+			result->push_back(dataSplit);
+		}
+		i++;
+		iter->clear(); //清除原有数据，释放内存
+	}
 }
 
 void printVec(vector<double>::const_iterator beg,
