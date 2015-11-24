@@ -7,8 +7,6 @@
 
 #include "utility.h"
 
-const static long TOTAL_LINE = 494021;
-const static long ATTRIBUTION_NUM = 41;
 const static double LOG2 = 0.693147;
 
 /***
@@ -24,14 +22,14 @@ double calcEntropy(vector<double>::const_iterator beg,
 }
 
 //计算每个类别的概率
-void calcPro(vector<string>::const_iterator beg,
-		vector<string>::const_iterator end, vector<double> *pro_label) {
+void calcPro(vector<string>&dataVec, vector<double> *pro_label) {
 	map<string, vector<int> > sparated;
-	countClass(beg, end, &sparated);
+	countClass(dataVec.begin(), dataVec.end(), &sparated);
+	double total_lines= double(dataVec.size());
 	double pro = 0.0;
 	for (map<string, vector<int> >::const_iterator iter = sparated.begin();
 			iter != sparated.end(); iter++) {
-		pro = double(iter->second.size()) / double(TOTAL_LINE);
+		pro = double(iter->second.size()) / total_lines;
 		pro_label->push_back(pro);
 	}
 }
@@ -39,12 +37,10 @@ void calcPro(vector<string>::const_iterator beg,
 double calcOneAttrEntropy(vector<string>::const_iterator beg_attr,
 		vector<string>::const_iterator end_attr,
 		const vector<string> & labelVec) {
-	map<string, map<string, int> > countAttr; //记录属性中每个不同之对应的不同标签的个数
+	map<string, map<string, int> > countAttr; //记录属性中每个不同值对应的不同标签的个数
 	int lineNum = 0;
-	for (vector<string>::const_iterator it = beg_attr; it != end_attr; it++) {
-		countAttr[*it][labelVec[lineNum]]++;
-		lineNum++;
-	}
+	for (vector<string>::const_iterator it = beg_attr; it != end_attr; it++)
+		countAttr[*it][labelVec[lineNum++]]++;
 	vector<double> attrItemNum; //一个属性的概率每项的数目
 	vector<double> attrItemEntropy; //一个属性的每项的熵，由attrItemPro计算熵得到
 	vector<double> attrItemPro; //单个属性单个项概率
@@ -83,6 +79,8 @@ int computeMaxEntropyPoint(const vector<vector<string> >&pdataVec,
 	for(set<int>::const_iterator lineNum = readLineNum.begin();lineNum!=readLineNum.end();lineNum++)
 		labelVec.push_back(plabelVec[*lineNum]);
 	for(vector<int>::const_iterator col = readColumnNum.begin();col!=readColumnNum.end();col++){
+		if(*col == -1)
+			continue;
 		vector<string> columnData;
 		for(set<int>::const_iterator lineNum = readLineNum.begin();lineNum!=readLineNum.end();lineNum++)
 			columnData.push_back(pdataVec[*col][*lineNum]);
@@ -90,14 +88,17 @@ int computeMaxEntropyPoint(const vector<vector<string> >&pdataVec,
 		columnData.clear();
 	}
 	vector<double> label_pro;
-	calcPro(labelVec.begin(), labelVec.end(), &label_pro);
+	calcPro(labelVec, &label_pro);
 	double infos = calcEntropy(label_pro.begin(), label_pro.end());
 	double max_ent = 0.0;
-	int max_index = 0;
+	int max_index = -1;
 	int i = 0;
 	for (vector<vector<string> >::const_iterator it = dataVec.begin(); it != dataVec.end(); it++) {
+		if(readColumnNum[i] == -1){
+			i++;
+			continue;
+		}
 		double ent = calcOneAttrEntropy(it->begin(), it->end(), labelVec);
-		//cout << "ent" << i << " = " << ent << endl;
 		double gain = infos - ent;
 		if (gain > max_ent) {
 			max_ent = gain;
@@ -126,115 +127,159 @@ string mostLabel(map<string, int>::const_iterator beg,
 			max_label = second_label;
 		}
 	}
-	if (second > threshold)
+	if (second >= threshold)
 		max_label = "";
 	return max_label;
 }
 
-void CreateTree(TreeNode*treeHead, vector<vector<string> >&dataVec,
-		vector<string>&labelVec, set<int> &readLineNum,
-		vector<int> &readColumnNum, const int &threshold) {
-	if (readLineNum.size() == 0)
-		return;
+void CreateTree(TreeNode*treeHead, vector<vector<string> >&dataVec,vector<string>&labelVec,
+		set<int> &readLineNum,vector<int> &readColumnNum, const int &threshold) {
+	if(readLineNum.size() == 0)return;//属性用完，建树完成
 	cout << "lineNum = " << readLineNum.size() << endl;
-	int attr_node = computeMaxEntropyPoint(dataVec, labelVec,readLineNum,readColumnNum);
-	readColumnNum[attr_node] = 1; //该点作为分节点
-	TreeNode *treeNode = new TreeNode();
-	treeNode->h_iAttribution = attr_node; //记录节点位置
-	countLabel(labelVec,readLineNum.begin(),readLineNum.end(), &treeNode->h_mLabelNum); //统计每个标签出现次数
-	treeNode->h_sLabel = mostLabel(treeNode->h_mLabelNum.begin(),
-			treeNode->h_mLabelNum.end(), threshold); //寻找最大值节点
-	if (treeHead == NULL)
-		treeHead = treeNode;
-	else {
-		treeNode->h_vChildren.push_back(treeNode);
+	int attr_node = computeMaxEntropyPoint(dataVec,labelVec,readLineNum,readColumnNum);
+	if(attr_node == -1){
+		map<string,int> labelNum;//每个类的数目，
+		countLabel(labelVec,readLineNum,&labelNum);
+		treeHead->label = mostLabel(labelNum.begin(),labelNum.end(),10000);
+		return;
 	}
-	if (treeNode->h_sLabel == "") { //标签为空，说明不是叶子节点，递归建树
+	cout << "attr_node = " << attr_node << endl;
+	treeHead->attribution = attr_node;
+	readColumnNum[attr_node] = -1;//标记属性列
+	map<string,int> labelNum;//每个类的数目，
+	countLabel(labelVec,readLineNum,&labelNum);
+	string label = mostLabel(labelNum.begin(),labelNum.end(),threshold);
+	if(label == ""){//非叶子节点，递归建树
 		map<string,set<int> > newReadLineNum;
-		vector<string>::const_iterator iter_end = dataVec[attr_node].end();
 		int i = 0;
-		for(vector<string>::const_iterator iter=dataVec[attr_node].begin();iter!=iter_end;iter++,i++){
-			newReadLineNum[*iter].insert(i);
-		}
+		for(set<int>::const_iterator iter = readLineNum.begin();iter!=readLineNum.end();iter++,i++)
+			newReadLineNum[dataVec[attr_node][*iter]].insert(i);
 		map<string,set<int> >::iterator iter_end_map = newReadLineNum.end();
 		for(map<string,set<int> >::iterator iter = newReadLineNum.begin();iter!=iter_end_map;iter++){
+			TreeNode *treeNode = new TreeNode();
+			initTree(treeNode);
+			treeHead->children.push_back(treeNode);
+			treeNode->attr_value=iter->first;
 			CreateTree(treeNode,dataVec,labelVec,iter->second,readColumnNum,threshold);
 		}
 	}
-//	readColumnNum[attr_node] = 1;
+	else{
+		map<string,int> attrNum;//每个属性的数目，
+		countLabel(dataVec[attr_node],readLineNum,&attrNum);
+		int maxVal = 0;
+		string attr_value = "";
+		for(map<string,int>::const_iterator iter = attrNum.begin();iter!=attrNum.end();iter++){
+			if(iter->second>maxVal){
+				maxVal = iter->second;
+				attr_value = iter->first;
+			}
+		}
+		TreeNode* treeEnd = new TreeNode();
+		initTree(treeEnd);
+		treeEnd->attribution = -1;
+		treeEnd->label = label;
+		treeEnd->attr_value = attr_value;
+		treeHead->children.push_back(treeEnd);
+	}
+	readColumnNum[attr_node] = 1;
+}
+
+void testDT(string tf,string pf,vector<int> symbolicList){
+	vector<vector<string> > dataVec;
+	vector<string> labelVec;
+	vector<double> pro_label;
+
+	clock_t tstart,tend;
+	tstart=clock();
+	cout << "读取数据..." << endl;
+	if (!readfile_with_column(tf, &dataVec, &labelVec))
+		return ; //按列读取文件
+	vector<vector<string> > testDataVec;
+	vector<string> testLabelVec;
+	if (!readfile_with_row(pf, &testDataVec, &testLabelVec))
+		return ; //按行读取文件
+	cout << "数据读入完成." << endl;
+	tend = clock();
+	cout << "耗时:" << (double)(tend-tstart)/CLOCKS_PER_SEC << "秒" << endl;
+
+	tstart=clock();
+	cout << "数据离散化..." << endl;
+	vector<vector<string> > splitData;
+	vector<double> rangeVec;
+	splitAttr(dataVec.begin(), dataVec.end(), symbolicList, &splitData,&rangeVec);
+	ofstream out_splitData("tree.data");
+	printVec(splitData,out_splitData);
+	out_splitData.close();
+	cout << "数据离散化完成." << endl;
+	tend = clock();
+	cout << "耗时:" << (double)(tend-tstart)/CLOCKS_PER_SEC << "秒" << endl;
+
+	tstart=clock();
+	cout << "开始建立决策树..." << endl;
+	TreeNode HeadTree;
+	initTree(&HeadTree);
+	set<int> readLineNum;
+	vector<int>readColumnNum;
+	int LINENUM = splitData.begin()->size();
+	int ATTR_NUM = splitData.size();
+	for(int i = 0;i<LINENUM;i++)
+		readLineNum.insert(i);
+	for(int i = 0;i<ATTR_NUM;i++)
+		readColumnNum.push_back(1);
+	int threshold = 100;
+	CreateTree(&HeadTree,splitData,labelVec,readLineNum,readColumnNum,threshold);
+	cout << "决策树建立完成." << endl;
+	cout << "保存树模型..." << endl;
+	ofstream out_model("tree.model");
+	printTree(&HeadTree,0,out_model);
+	dataVec.clear();
+	splitData.clear();
+	labelVec.clear();
+	out_model.close();
+	cout << "模型已保存到tree.model文件中." << endl;
+	tend = clock();
+	cout << "耗时:" << (double)(tend-tstart)/CLOCKS_PER_SEC << "秒" << endl;
+
+	tstart=clock();
+	cout<<"测试..." << endl;
+	int total = 0;
+	int count = 0;
+	double correctness = 0.0;
+	ofstream out("testlabel.txt");
+	vector<string>::const_iterator iter_label = testLabelVec.begin();
+	vector<vector<string> >::const_iterator iter_data = testDataVec.begin();
+	for(;iter_data!=testDataVec.end() && iter_label!=testLabelVec.end();iter_data++,iter_label++){
+		vector<string> data_tmp(iter_data->begin(),iter_data->end());
+		string returnLabel = findNode(&HeadTree,data_tmp,rangeVec,symbolicList,transform);
+		total ++;
+		if(returnLabel == *iter_label)
+			count++;
+		out << returnLabel << "\t\t" << *iter_label << endl;
+		if(total%5000 == 0){
+			cout << "total = " << total << endl;
+			cout << "count = " << count << endl;
+			correctness = (double)count/(double)total;
+			cout << "correctness = " << correctness << endl;
+		}
+	}
+	out.close();
+	correctness = (double)count/(double)total;
+	cout << "测试正确率：" << correctness << endl;
+	tend = clock();
+	cout << "耗时:" << (double)(tend-tstart)/CLOCKS_PER_SEC << "秒" << endl << endl;
 }
 
 int main() {
 	string tf = "/home/huaa/workspace/kddcup.data_10_percent.txt"; //train_file
-	string pf = "/home/huaa/Source_File/Data_Mining/corrected"; //predict_file
+	string pf = "/home/huaa/workspace/corrected"; //predict_file
 
 	int a[7] = { 1, 2, 3, 6, 11, 20, 21 }; //数据部分离散变量位置
 	vector<int> symbolicList(a, a + 7);
-	vector<vector<string> > dataVec;
-	vector<string> labelVec;
-	vector<double> pro_label;
-	cout << "读取数据..." << endl;
-	if (!readfile_with_column(tf, &dataVec, &labelVec))
-		return 0; //按列读取文件
-	cout << "数据读入完成." << endl;
-	cout << "数据离散化..." << endl;
-	vector<vector<string> > splitData;
-	splitAttr(dataVec.begin(), dataVec.end(), symbolicList, &splitData);
-	cout << "数据离散化完成." << endl;
-	cout << "开始建立决策树..." << endl;
-	TreeNode *HeadTree = NULL;
-	set<int> readLineNum;
-	for(int i = 0;i<TOTAL_LINE;i++)
-		readLineNum.insert(i);
-	vector<int>readColumnNum;
-	for(int i = 0;i<ATTRIBUTION_NUM;i++)
-		readColumnNum.push_back(i);
-	int threshold = 1000;
-	CreateTree(HeadTree,splitData,labelVec,readLineNum,readColumnNum,threshold);
-	cout << "决策树建立完成." << endl;
-	cout << "打印树..." << endl;
-	printTree(HeadTree);
-
-//	map<string, int> tmostLabel;
-//	string str[5] = { "a", "b", "c", "d", "e" };
-//	int num[5] = { 10, 20, 13, 300, 40 };
-//	for (int i = 0; i < 5; i++)
-//		tmostLabel[str[i]] = num[i];
-//	string res_str = mostLabel(tmostLabel.begin(), tmostLabel.end(), 80);
-//	cout << res_str << endl;
-
-//	int index = computeMaxEntropyPoint(result.begin(),result.end(),labelVec);
-//	cout << "index = " << index << endl;
-
-//	int i = 0;
-//	double max_ent = 0.0;
-//	int max_index = 0;
-//	for (vector<vector<string> >::const_iterator it = result.begin();
-//			it != result.end(); it++) {
-//		double ent = calcOneAttrEntropy(it->begin(), it->end(), labelVec);
-//		cout << "entropy" << i++ << " = " << ent << endl;
-//		if (ent > max_ent) {
-//			max_ent = ent;
-//			max_index = i;
-//		}
-//	}
-//	cout << "max_entropy = " << max_ent << endl;
-//	cout << "max_index = " << max_index << endl;
-//	vector<string> tmp(result[0].begin(), result[0].end());
-
-//	ofstream out("out.txt");
-//	printVec(result,out);
-
-//	calcPro(labelVec.begin(),labelVec.end(),&pro_label);
-//	vector<double> tmp_pro;
-//	vector<double> tmp_double;
-//	atof_Vec(tmp.begin(), tmp.end(), &tmp_double);
-//	printVec(tmp_double.begin(), tmp_double.end());
-
-//	splitAttrContinuous(tmp_double.begin(), tmp_double.end(), 20, &tmp_pro);
-//	printVec(tmp_pro.begin(),tmp_pro.end());
-	//printVec(pro_label.begin(),pro_label.end());
-
+	clock_t totaltime_s,totaltime_e;
+	totaltime_s = clock();
+	testDT(tf,pf,symbolicList);
+	totaltime_e = clock();
+	cout << "总共耗时:" << (double)(totaltime_e-totaltime_s)/CLOCKS_PER_SEC << "秒" << endl;
 	cout << "..." << endl;
 	return 0;
 }

@@ -98,52 +98,24 @@ void countClass(vector<string>::const_iterator beg,
 		(*sparated)[*iter].push_back(i++); //record the location of every class
 	}
 }
-
-//计算连续变量的均值
-double mean(vector<double>::const_iterator beg,
-		vector<double>::const_iterator end) {
-	double sum = 0.0;
-	int count = 0;
-	for (vector<double>::const_iterator iter = beg; iter != end; iter++) {
-		sum += *iter;
-		count++;
+void countClass(vector<string>::const_iterator beg,
+		vector<string>::const_iterator end,
+		map<string, set<int> > *sparated) {
+	int i = 0;
+	for (vector<string>::const_iterator iter = beg; iter != end; iter++) {
+		(*sparated)[*iter].insert(i++); //record the location of every class
 	}
-	sum = sum / count;
-	return sum;
+}
+void countLabel(vector<string> &dataVec,set<int>&readLineNum, map<string,int>*labelNum){
+	for(set<int>::const_iterator iter_line = readLineNum.begin();iter_line!=readLineNum.end();iter_line++){
+		(*labelNum)[dataVec[*iter_line]]++;
+	}
 }
 
 void atof_Vec(vector<string>::const_iterator beg,
 		vector<string>::const_iterator end, vector<double> *result) {
 	for (vector<string>::const_iterator iter = beg; iter != end; iter++)
 		result->push_back(atof(iter->c_str()));
-}
-/***
- * 连续属性分段，返回每个段概率result，n为分段阈值，出现次数大于等于n的保留
- * 返回值为真，表示分段成功，否则表示分段后只有一个值，直接删除
- */
-
-bool splitAttrContinuous(vector<double>::const_iterator beg,
-		vector<double>::const_iterator end, int n,
-		map<double, double> *result) {
-	map<double, int> countAttr;
-	for (vector<double>::const_iterator iter = beg; iter != end; iter++) {
-		map<double, int>::const_iterator it = countAttr.find(*iter);
-		if (it == countAttr.end())
-			countAttr[*iter] = 1;
-		else
-			countAttr[*iter] += 1;
-	}
-	if (countAttr.size() == 1) {
-		result->clear();
-		return false;
-	}
-	map<double, int> retainAttr; //保留的属性，出现次数大于等于n的，作为分解点
-	for (map<double, int>::const_iterator iter = countAttr.begin();
-			iter != countAttr.end(); iter++) {
-		if (iter->second >= n)
-			retainAttr.insert(*iter);
-	}
-	return true;
 }
 
 /***
@@ -161,32 +133,46 @@ void max_min(vector<double>::const_iterator beg,
 	}
 }
 
-void splitAttrTwo(vector<string>::const_iterator beg,
-		vector<string>::const_iterator end, vector<string> *result) {
-	vector<double> dataFloat;
-	atof_Vec(beg, end, &dataFloat);
-	double ave = mean(dataFloat.begin(), dataFloat.end());
-	for (vector<double>::const_iterator iter = dataFloat.begin();
-			iter != dataFloat.end(); iter++)
-		if (*iter >= ave)
-			result->push_back("1");
-		else
-			result->push_back("0");
+//除range取整
+string transform(string data,double range){
+	stringstream ss;
+	ss << data;
+	double sub;
+	ss >> sub;
+	int k = (int)(sub/range);
+	stringstream ss_;
+	ss_ << k;
+	string str;
+	ss_ >> str;
+	return str;
+}
+double splitAttrMethod(vector<string>::const_iterator beg,vector<string>::const_iterator end,int num,vector<string>*result){
+	vector<double>dataFloat;
+	atof_Vec(beg,end,&dataFloat);
+	double maxVal,minVal;
+	max_min(dataFloat.begin(),dataFloat.end(),&maxVal,&minVal);
+	double range = (maxVal-minVal)/num;
+	for(vector<string>::const_iterator iter = beg;iter!=end;iter++){
+		result->push_back(transform(*iter,range));
+	}
+	return range;
 }
 
 //划分属性，并删除原有属性数据，释放内存
 void splitAttr(vector<vector<string> >::iterator beg,
 		vector<vector<string> >::iterator end, vector<int> &symList,
-		vector<vector<string> > *result) {
+		vector<vector<string> > *result,vector<double>*rangeVec) {
 	int i = 0;
 	for (vector<vector<string> >::iterator iter = beg; iter != end; iter++) {
 		if (find(symList.begin(), symList.end(), i) == symList.end()) {
 			vector<string> dataSplit;
-			splitAttrTwo(iter->begin(), iter->end(), &dataSplit);
+			rangeVec->push_back(splitAttrMethod(iter->begin(), iter->end(),5, &dataSplit));
+			if(dataSplit.size()<3)continue;
 			result->push_back(dataSplit);
 		} else {
 			vector<string> dataSplit(iter->begin(), iter->end());
 			result->push_back(dataSplit);
+			rangeVec->push_back(-1.0);
 		}
 		i++;
 		iter->clear(); //清除原有数据，释放内存
@@ -197,6 +183,12 @@ void printVec(vector<double>::const_iterator beg,
 		vector<double>::const_iterator end) {
 	int i = 0;
 	for (vector<double>::const_iterator iter = beg; iter != end; iter++, i++)
+		cout << i << ":" << *iter << endl;
+}
+void printVec(vector<string>::const_iterator beg,
+		vector<string>::const_iterator end) {
+	int i = 0;
+	for (vector<string>::const_iterator iter = beg; iter != end; iter++, i++)
 		cout << i << ":" << *iter << endl;
 }
 
