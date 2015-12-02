@@ -36,7 +36,9 @@ bool readfile_with_row(string filename, vector<vector<string> >* dataVec,
 	string delim = ",";
 	string tmp = "";
 	vector<string> data;
+	srand((unsigned)(time(NULL)));
 	while (fin >> line) {
+		if(rand()%10 != 1)continue;
 		split(line, delim, &data);
 		tmp = data.back();
 		labelVec->push_back(tmp);
@@ -72,7 +74,9 @@ bool readfile_with_column(string filename, vector<vector<string> >* dataVec,
 		vec.push_back(*iter);
 		dataVec->push_back(vec);
 	}
+	srand((unsigned)(time(NULL)));
 	while (fin >> line) {
+		if(rand()%100 != 1)continue;
 		split(line, delim, &data);
 		label = data.back();
 		labelVec->push_back(label);
@@ -166,7 +170,7 @@ void splitAttr(vector<vector<string> >::iterator beg,
 	for (vector<vector<string> >::iterator iter = beg; iter != end; iter++) {
 		if (find(symList.begin(), symList.end(), i) == symList.end()) {
 			vector<string> dataSplit;
-			rangeVec->push_back(splitAttrMethod(iter->begin(), iter->end(),5, &dataSplit));
+			rangeVec->push_back(splitAttrMethod(iter->begin(), iter->end(),10, &dataSplit));
 			if(dataSplit.size()<3)continue;
 			result->push_back(dataSplit);
 		} else {

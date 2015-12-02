@@ -52,7 +52,7 @@ string findNode(TreeNode*treeHead,vector<string>&data,vector<double>&rangeVec,ve
 		}
 	}
 	if(newTreeNode == NULL)
-		return treeHead->label;
+		return "";
 	result = findNode(newTreeNode,data,rangeVec,symList,transform);
 	return result;
 }

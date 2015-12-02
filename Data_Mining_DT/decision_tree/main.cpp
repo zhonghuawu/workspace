@@ -113,21 +113,16 @@ string mostLabel(map<string, int>::const_iterator beg,
 		map<string, int>::const_iterator end, int threshold) {
 	int max = 0;
 	string max_label = "";
-	int second = 0;
-	string second_label = "";
-	for (map<string, int>::const_iterator it = beg; it != end; it++) {
-		if (it->second > second) {
-			second = it->second;
-			second_label = it->first;
-		}
-		if (second > max) {
-			int tmp = max;
-			max = second;
-			second = tmp;
-			max_label = second_label;
+	int i = 0;
+	for (map<string, int>::const_iterator it = beg; it != end; it++,i++) {
+		if(it->second>max){
+			max = it->second;
+			max_label = it->first;
 		}
 	}
-	if (second >= threshold)
+	if(i<=1)
+		return max_label;
+	if (max >= threshold)
 		max_label = "";
 	return max_label;
 }
@@ -151,9 +146,8 @@ void CreateTree(TreeNode*treeHead, vector<vector<string> >&dataVec,vector<string
 	string label = mostLabel(labelNum.begin(),labelNum.end(),threshold);
 	if(label == ""){//非叶子节点，递归建树
 		map<string,set<int> > newReadLineNum;
-		int i = 0;
-		for(set<int>::const_iterator iter = readLineNum.begin();iter!=readLineNum.end();iter++,i++)
-			newReadLineNum[dataVec[attr_node][*iter]].insert(i);
+		for(set<int>::const_iterator iter = readLineNum.begin();iter!=readLineNum.end();iter++)
+			newReadLineNum[dataVec[attr_node][*iter]].insert(*iter);
 		map<string,set<int> >::iterator iter_end_map = newReadLineNum.end();
 		for(map<string,set<int> >::iterator iter = newReadLineNum.begin();iter!=iter_end_map;iter++){
 			TreeNode *treeNode = new TreeNode();
@@ -226,7 +220,7 @@ void testDT(string tf,string pf,vector<int> symbolicList){
 		readLineNum.insert(i);
 	for(int i = 0;i<ATTR_NUM;i++)
 		readColumnNum.push_back(1);
-	int threshold = 100;
+	int threshold = 10;
 	CreateTree(&HeadTree,splitData,labelVec,readLineNum,readColumnNum,threshold);
 	cout << "决策树建立完成." << endl;
 	cout << "保存树模型..." << endl;
