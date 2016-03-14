@@ -27,6 +27,8 @@
 
 #include "Tree.h"
 
+#include "Tree.h"
+
 using namespace std;
 
 void split(std::string& s, std::string& delim,std::vector< std::string >* ret);
@@ -39,7 +41,12 @@ void countLabel(vector<string>&dataVec,set<int>&readLineNum,map<string,int>*labe
 
 string transform(string data,double range);
 void atof_Vec(vector<string>::const_iterator beg,vector<string>::const_iterator end,vector<double> *result);
+<<<<<<< HEAD
 void splitAttr(vector<vector<string> >::iterator beg,vector<vector<string> >::iterator end, vector<int> &symList,vector<vector<string> > *result,vector<double>*rangeVec);
+=======
+void splitAttrTwo(vector<string>::const_iterator beg,vector<string>::const_iterator end,vector<string> *result);
+void splitAttr(vector<vector<string> >::iterator beg,vector<vector<string> >::iterator end, vector<int> &symList,vector<vector<string> > *result);
+>>>>>>> 9bebcdf1253adeb0372c21fa54554eea06d2c3fa
 
 void max_min(vector<double>::const_iterator beg,vector<double>::const_iterator end, double *maxVal, double *minVal);
 

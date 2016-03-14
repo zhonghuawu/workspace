@@ -102,6 +102,7 @@ void countClass(vector<string>::const_iterator beg,
 		(*sparated)[*iter].push_back(i++); //record the location of every class
 	}
 }
+<<<<<<< HEAD
 void countClass(vector<string>::const_iterator beg,
 		vector<string>::const_iterator end,
 		map<string, set<int> > *sparated) {
@@ -114,6 +115,20 @@ void countLabel(vector<string> &dataVec,set<int>&readLineNum, map<string,int>*la
 	for(set<int>::const_iterator iter_line = readLineNum.begin();iter_line!=readLineNum.end();iter_line++){
 		(*labelNum)[dataVec[*iter_line]]++;
 	}
+=======
+
+//计算连续变量的均值
+double mean(vector<double>::const_iterator beg,
+		vector<double>::const_iterator end) {
+	double sum = 0.0;
+	int count = 0;
+	for (vector<double>::const_iterator iter = beg; iter != end; iter++) {
+		sum += *iter;
+		count++;
+	}
+	sum = sum / count;
+	return sum;
+>>>>>>> 9bebcdf1253adeb0372c21fa54554eea06d2c3fa
 }
 
 void atof_Vec(vector<string>::const_iterator beg,
@@ -177,6 +192,53 @@ void splitAttr(vector<vector<string> >::iterator beg,
 			vector<string> dataSplit(iter->begin(), iter->end());
 			result->push_back(dataSplit);
 			rangeVec->push_back(-1.0);
+		}
+		i++;
+		iter->clear(); //清除原有数据，释放内存
+	}
+}
+
+/***
+ * 计算连续属性中最大值和最小值
+ */
+void max_min(vector<double>::const_iterator beg,
+		vector<double>::const_iterator end, double *maxVal, double *minVal) {
+	*maxVal = *beg;
+	*minVal = *beg;
+	for (vector<double>::const_iterator iter = beg; iter != end; iter++) {
+		if (*maxVal < *iter)
+			*maxVal = *iter;
+		if (*minVal > *iter)
+			*minVal = *iter;
+	}
+}
+
+void splitAttrTwo(vector<string>::const_iterator beg,
+		vector<string>::const_iterator end, vector<string> *result) {
+	vector<double> dataFloat;
+	atof_Vec(beg, end, &dataFloat);
+	double ave = mean(dataFloat.begin(), dataFloat.end());
+	for (vector<double>::const_iterator iter = dataFloat.begin();
+			iter != dataFloat.end(); iter++)
+		if (*iter >= ave)
+			result->push_back("1");
+		else
+			result->push_back("0");
+}
+
+//划分属性，并删除原有属性数据，释放内存
+void splitAttr(vector<vector<string> >::iterator beg,
+		vector<vector<string> >::iterator end, vector<int> &symList,
+		vector<vector<string> > *result) {
+	int i = 0;
+	for (vector<vector<string> >::iterator iter = beg; iter != end; iter++) {
+		if (find(symList.begin(), symList.end(), i) == symList.end()) {
+			vector<string> dataSplit;
+			splitAttrTwo(iter->begin(), iter->end(), &dataSplit);
+			result->push_back(dataSplit);
+		} else {
+			vector<string> dataSplit(iter->begin(), iter->end());
+			result->push_back(dataSplit);
 		}
 		i++;
 		iter->clear(); //清除原有数据，释放内存

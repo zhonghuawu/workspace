@@ -1,0 +1,12 @@
+节点  :0
+节点 - 0:1
+叶子 -- icmp:-1		标签：smurf.
+叶子 -- tcp:-1		标签：neptune.
+叶子 -- udp:-1		标签：normal.
+节点 - 1:1
+叶子 -- tcp:-1		标签：warezclient.
+叶子 -- udp:-1		标签：normal.
+叶子 - 10:-1		标签：portsweep.
+节点 - 2:1
+叶子 -- udp:-1		标签：normal.
+叶子 - 3:-1		标签：normal.

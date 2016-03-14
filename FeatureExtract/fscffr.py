@@ -7,8 +7,8 @@ import numpy as np
 #FCT table
 class fct_table:
     def __init__(self,id1,id2,count_positive=None,count_negative=None,\
-                 if_trend=None,r_square=None,if_asso=None,rss=None,tss=None,\
-                 mean=None,r_square_max=None,polyfit=None):
+                 if_trend=None,r_square=0,if_asso=None,rss=None,tss=None,\
+                 mean=None,r_square_max=0,polyfit=None):
         self.id1=id1
         self.id2=id2
         self.count_positive=count_positive
@@ -46,7 +46,7 @@ class fscffr:
         self.windows=None#滑动窗口内容
         self.diff_windows=None#差分窗口值
         
-        self.fct_tables=[]
+        self.fct_tables=[]#fct表集合
         
     #读文件
     def readfile(self,data_file_name):
@@ -75,21 +75,40 @@ class fscffr:
         else:
             fct=fct_table(i,j,count_positive, count_nagetive, if_trend)
             self.fct_tables.append(fct)
+        return if_trend
     
     #曲线拟合，判断趋势相关的属性i和j是否属性相关
     def curvefit(self,i,j):
-        pass
+        x=self.windows[i].values
+        y=self.windows[j].values
+        k,b=np.polyfit(x,y,1)
+        _y=k*x+b
+        mean=np.mean(y)
+        rss=sum(np.square(y-_y))
+        tss=sum(np.square(y-mean))
+        r_square=1-rss/tss
+        if_asso=0
+        if r_square>self.threshold_fit:
+            if_asso=1
+        for fct in self.fct_tables:
+            if fct.id1==i and fct.id2==j:
+                fct.update_curvefit(r_square,if_asso,rss,tss,mean,lambda x:k*x+b)
+       
+        
     
     def run(self):
         for i in range(1,self.feature_size):
             for j in range(i+1,self.feature_size+1):
-                self.trend(i,j)
+                if_trend = self.trend(i,j)
+                if if_trend == 1:
+                    self.curvefit(i, j)
     
     
 if __name__=="__main__":
     data_file_name='/home/huaa/workspace/datas/letter/letter-recognition.data'
-    f=fscffr(0.6,0.9,16)
+    f=fscffr(0.6,0.7,16)
     f.readfile(data_file_name)
     f.run()
     for fct in f.fct_tables:
-        print fct.id1,fct.id2,fct.count_positive,fct.count_nagetive,fct.if_trend
+        if fct.if_trend==1:
+            print fct.id1,fct.id2,fct.if_trend,fct.r_square,fct.if_asso,fct.rss,fct.tss
