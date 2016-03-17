@@ -124,13 +124,13 @@ class fscffr:
     
 if __name__=="__main__":
     data_file_name='/home/huaa/workspace/datas/letter/letter-recognition.data'
-    f=fscffr(data_file_name,0.6,0.6,16,window_size=200,basic_window_size=40)
+    f=fscffr(data_file_name,0.6,0.6,16,window_size=1000,basic_window_size=40)
     f.readfile()
     f.run()
     i=0
-    while 20000 not in f.readed_rows:
-        f.update_windows()
-        f.run()
+    #while 20000 not in f.readed_rows:
+        #f.update_windows()
+        #f.run()
     for fct in f.fct_tables:
         if fct.if_trend==1:
             print fct.id1,fct.id2,fct.count_positive,fct.count_nagetive,fct.if_trend,fct.r_square,fct.if_asso,fct.rss,fct.tss
