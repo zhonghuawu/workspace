@@ -60,7 +60,7 @@ class FSCFFR:
     def print_fct(self):
         for fct in self.fct_tables:
             if fct.if_asso==1:
-                print fct.id1,fct.id2,fct.count_positive,fct.count_negative,fct.if_trend,fct.r_square,fct.if_asso,fct.rss,fct.tss        
+                print fct.id1,fct.id2,":",fct.count_positive,fct.count_negative,fct.if_trend,fct.r_square,fct.if_asso#,fct.rss,fct.tss        
         
     #读文件
     def readfile(self):
@@ -96,27 +96,24 @@ class FSCFFR:
             if fct.id1==i and fct.id2==j:
                 fct.update_trend(count_positive,count_negative,if_trend)
                 break
-        #else:
-            #fct=fct_table(i,j,count_positive, count_negative, if_trend)
-            #self.fct_tables.append(fct)
         return if_trend
     
     #曲线拟合，判断趋势相关的属性i和j是否属性相关
     def curvefit(self,i,j):
         x=self.windows[i].values
         y=self.windows[j].values
-        k,b=np.polyfit(x,y,1)
-        _y=k*x+b
-        mean=np.mean(y)
-        rss=sum(np.square(y-_y))
-        tss=sum(np.square(y-mean))
+        a,b,c=np.polyfit(x,y,deg=2)
+        y_fit=a*x**2+b*x+c
+        y_bar=np.mean(y)
+        rss=sum(np.square(y-y_fit))
+        tss=sum(np.square(y-y_bar))
         r_square=1-rss/tss
         if_asso=0
         if r_square>self.threshold_fit:
             if_asso=1
         for fct in self.fct_tables:
             if fct.id1==i and fct.id2==j:
-                fct.update_curvefit(r_square,if_asso,rss,tss,mean,lambda x:k*x+b)
+                fct.update_curvefit(r_square,if_asso,rss,tss,y_bar,lambda x:a*x**2+b*x+c)
                 break
 
     def run(self):
@@ -130,7 +127,7 @@ class FSCFFR:
 if __name__=="__main__":
     data_file_name='/home/huaa/workspace/datas/letter/letter-recognition.data'
     f=FSCFFR(data_file_name,0.6,0.6,16,20000,\
-             window_size=2000,basic_window_size=800)
+             window_size=3600,basic_window_size=200)
     f.readfile()
     f.run()
     f.print_fct()
