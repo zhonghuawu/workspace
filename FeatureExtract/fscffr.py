@@ -59,7 +59,7 @@ class FSCFFR:
     
     def print_fct(self):
         for fct in self.fct_tables:
-            if fct.if_asso==1:
+            if fct.if_trend==1:
                 print fct.id1,fct.id2,":",fct.count_positive,fct.count_negative,fct.if_trend,fct.r_square,fct.if_asso#,fct.rss,fct.tss        
         
     #读文件
@@ -87,7 +87,7 @@ class FSCFFR:
     #判断属性i，j是否趋势相关
     def trend(self,i,j):
         series=self.diff_windows[i]*self.diff_windows[j]
-        count_positive=series[series>0].size/self.windows_size
+        count_positive=series[series>=0].size/self.windows_size
         count_negative=series[series<0].size/self.windows_size
         if_trend=0
         if count_positive>self.threshold_trend or count_negative>self.threshold_trend:
@@ -102,7 +102,7 @@ class FSCFFR:
     def curvefit(self,i,j):
         x=self.windows[i].values
         y=self.windows[j].values
-        a,b,c=np.polyfit(x,y,deg=2)
+        a,b,c=np.polyfit(x,y,deg=2)#二次曲线拟合
         y_fit=a*x**2+b*x+c
         y_bar=np.mean(y)
         rss=sum(np.square(y-y_fit))
@@ -125,9 +125,10 @@ class FSCFFR:
     
     
 if __name__=="__main__":
-    data_file_name='/home/huaa/workspace/datas/letter/letter-recognition.data'
-    f=FSCFFR(data_file_name,0.6,0.6,16,20000,\
-             window_size=3600,basic_window_size=200)
+    data_file_name_letter='/home/huaa/workspace/datas/letter/letter-recognition.data'
+    data_file_name_waveform='/home/huaa/workspace/datas/Waveform/waveform-+noise.data'    
+    f=FSCFFR(data_file_name_letter,0.8,0.8,16,20000,\
+             window_size=4000,basic_window_size=500)
     f.readfile()
     f.run()
     f.print_fct()
