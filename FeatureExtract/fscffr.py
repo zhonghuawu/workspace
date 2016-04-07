@@ -143,3 +143,4 @@ if __name__=="__main__":
     #for fct in f.fct_tables:
         #if fct.if_trend==1:
             #print fct.id1,fct.id2,fct.count_positive,fct.count_negative,fct.if_trend,fct.r_square,fct.if_asso,fct.rss,fct.tss
+
