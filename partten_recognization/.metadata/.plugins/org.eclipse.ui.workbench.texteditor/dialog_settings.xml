@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="l_num" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="l_num"/>
+			<item value="&#x09;list&lt;int&gt;::iterator it=classes[l_num].begin();"/>
+			<item value="i"/>
+			<item value="&#x09;list&lt;int&gt;::iterator it=classes[i].begin();"/>
+			<item value="i+1"/>
+			<item value="0"/>
+		</list>
+		<list key="replacehistory">
+			<item value="labels_number-1"/>
+			<item value="l_num"/>
+			<item value="j"/>
+			<item value="i"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="324" key="DIALOG_WIDTH"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="425" key="DIALOG_HEIGHT"/>
+		<item value="903" key="DIALOG_X_ORIGIN"/>
+		<item value="193" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

@@ -1,0 +1,2248 @@
+22:34:57 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+In file included from /usr/include/c++/5/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/stl_pair.h: In instantiation of ‘std::pair<_T1, _T2>::pair(const std::pair<_U1, _U2>&) [with _U1 = const int; _U2 = std::__cxx11::list<int>; _T1 = int; _T2 = std::vector<int>]’:
+/usr/include/c++/5/bits/stl_algo.h:3767:5:   required from ‘_Funct std::for_each(_IIter, _IIter, _Funct) [with _IIter = std::_Rb_tree_iterator<std::pair<const int, std::__cxx11::list<int> > >; _Funct = print_map<std::pair<int, std::vector<int> >, int>]’
+../decomposition.cpp:150:81:   required from here
+/usr/include/c++/5/bits/stl_pair.h:119:39: error: no matching function for call to ‘std::vector<int>::vector(const std::__cxx11::list<int>&)’
+  : first(__p.first), second(__p.second) { }
+                                       ^
+In file included from /usr/include/c++/5/vector:64:0,
+                 from ../decomposition.cpp:13:
+/usr/include/c++/5/bits/stl_vector.h:407:9: note: candidate: template<class _InputIterator> std::vector<_Tp, _Alloc>::vector(_InputIterator, _InputIterator, const allocator_type&)
+         vector(_InputIterator __first, _InputIterator __last,
+         ^
+/usr/include/c++/5/bits/stl_vector.h:407:9: note:   template argument deduction/substitution failed:
+In file included from /usr/include/c++/5/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/stl_pair.h:119:39: note:   candidate expects 3 arguments, 1 provided
+  : first(__p.first), second(__p.second) { }
+                                       ^
+In file included from /usr/include/c++/5/vector:64:0,
+                 from ../decomposition.cpp:13:
+/usr/include/c++/5/bits/stl_vector.h:318:7: note: candidate: std::vector<_Tp, _Alloc>::vector(const std::vector<_Tp, _Alloc>&) [with _Tp = int; _Alloc = std::allocator<int>]
+       vector(const vector& __x)
+       ^
+/usr/include/c++/5/bits/stl_vector.h:318:7: note:   no known conversion for argument 1 from ‘const std::__cxx11::list<int>’ to ‘const std::vector<int>&’
+/usr/include/c++/5/bits/stl_vector.h:303:7: note: candidate: std::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const value_type&, const allocator_type&) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::size_type = unsigned int; std::vector<_Tp, _Alloc>::value_type = int; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<int>]
+       vector(size_type __n, const value_type& __value = value_type(),
+       ^
+/usr/include/c++/5/bits/stl_vector.h:303:7: note:   no known conversion for argument 1 from ‘const std::__cxx11::list<int>’ to ‘std::vector<int>::size_type {aka unsigned int}’
+/usr/include/c++/5/bits/stl_vector.h:264:7: note: candidate: std::vector<_Tp, _Alloc>::vector(const allocator_type&) [with _Tp = int; _Alloc = std::allocator<int>; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<int>]
+       vector(const allocator_type& __a) _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/5/bits/stl_vector.h:264:7: note:   no known conversion for argument 1 from ‘const std::__cxx11::list<int>’ to ‘const allocator_type& {aka const std::allocator<int>&}’
+/usr/include/c++/5/bits/stl_vector.h:253:7: note: candidate: std::vector<_Tp, _Alloc>::vector() [with _Tp = int; _Alloc = std::allocator<int>]
+       vector()
+       ^
+/usr/include/c++/5/bits/stl_vector.h:253:7: note:   candidate expects 0 arguments, 1 provided
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+22:36:16 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+22:36:16 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+22:36:19 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:36:23 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:40:14 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+22:40:14 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::print_classes()’:
+../decomposition.cpp:153:77: error: assuming pointer to member ‘void Decomposition::print_map(const T&) [with T = std::pair<int, std::__cxx11::list<int> >; V = int]’ [-fpermissive]
+  for_each(classes.begin(),classes.end(),print_map<pair<int,list<int> >,int >);
+                                                                             ^
+../decomposition.cpp:153:77: note: (a pointer to member can only be formed with ‘&Decomposition::print_map<std::pair<int, std::__cxx11::list<int> >, int>’)
+../decomposition.cpp: In member function ‘void Decomposition::print_means()’:
+../decomposition.cpp:156:81: error: assuming pointer to member ‘void Decomposition::print_map(const T&) [with T = std::pair<int, std::vector<double> >; V = double]’ [-fpermissive]
+  for_each(means.begin(),means.end(),print_map<pair<int,vector<double> >,double >);
+                                                                                 ^
+In file included from /usr/include/c++/5/algorithm:62:0,
+                 from ../decomposition.cpp:19:
+/usr/include/c++/5/bits/stl_algo.h: In instantiation of ‘_Funct std::for_each(_IIter, _IIter, _Funct) [with _IIter = std::_Rb_tree_iterator<std::pair<const int, std::__cxx11::list<int> > >; _Funct = void (Decomposition::*)(const std::pair<int, std::__cxx11::list<int> >&)]’:
+../decomposition.cpp:153:77:   required from here
+/usr/include/c++/5/bits/stl_algo.h:3767:5: error: must use ‘.*’ or ‘->*’ to call pointer-to-member function in ‘__f (...)’, e.g. ‘(... ->* __f) (...)’
+  __f(*__first);
+     ^
+/usr/include/c++/5/bits/stl_algo.h: In instantiation of ‘_Funct std::for_each(_IIter, _IIter, _Funct) [with _IIter = std::_Rb_tree_iterator<std::pair<const int, std::vector<double> > >; _Funct = void (Decomposition::*)(const std::pair<int, std::vector<double> >&)]’:
+../decomposition.cpp:156:81:   required from here
+/usr/include/c++/5/bits/stl_algo.h:3767:5: error: must use ‘.*’ or ‘->*’ to call pointer-to-member function in ‘__f (...)’, e.g. ‘(... ->* __f) (...)’
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+22:41:03 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+22:41:03 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::print_classes()’:
+../decomposition.cpp:153:78: error: assuming pointer to member ‘void Decomposition::print_map(const T&) [with T = std::pair<int, std::__cxx11::list<int> >; V = int]’ [-fpermissive]
+  for_each(classes.begin(),classes.end(),&print_map<pair<int,list<int> >,int >);
+                                                                              ^
+../decomposition.cpp:153:78: note: (a pointer to member can only be formed with ‘&Decomposition::print_map<std::pair<int, std::__cxx11::list<int> >, int>’)
+../decomposition.cpp: In member function ‘void Decomposition::print_means()’:
+../decomposition.cpp:156:82: error: assuming pointer to member ‘void Decomposition::print_map(const T&) [with T = std::pair<int, std::vector<double> >; V = double]’ [-fpermissive]
+  for_each(means.begin(),means.end(),&print_map<pair<int,vector<double> >,double >);
+                                                                                  ^
+In file included from /usr/include/c++/5/algorithm:62:0,
+                 from ../decomposition.cpp:19:
+/usr/include/c++/5/bits/stl_algo.h: In instantiation of ‘_Funct std::for_each(_IIter, _IIter, _Funct) [with _IIter = std::_Rb_tree_iterator<std::pair<const int, std::__cxx11::list<int> > >; _Funct = void (Decomposition::*)(const std::pair<int, std::__cxx11::list<int> >&)]’:
+../decomposition.cpp:153:78:   required from here
+/usr/include/c++/5/bits/stl_algo.h:3767:5: error: must use ‘.*’ or ‘->*’ to call pointer-to-member function in ‘__f (...)’, e.g. ‘(... ->* __f) (...)’
+  __f(*__first);
+     ^
+/usr/include/c++/5/bits/stl_algo.h: In instantiation of ‘_Funct std::for_each(_IIter, _IIter, _Funct) [with _IIter = std::_Rb_tree_iterator<std::pair<const int, std::vector<double> > >; _Funct = void (Decomposition::*)(const std::pair<int, std::vector<double> >&)]’:
+../decomposition.cpp:156:82:   required from here
+/usr/include/c++/5/bits/stl_algo.h:3767:5: error: must use ‘.*’ or ‘->*’ to call pointer-to-member function in ‘__f (...)’, e.g. ‘(... ->* __f) (...)’
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+22:41:28 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+22:41:28 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp:137:41: error: no ‘void Decomposition::print_map(const T&)’ member function declared in class ‘Decomposition’
+ void Decomposition::print_map(const T &x){
+                                         ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+22:41:42 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+22:41:42 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+22:41:50 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+22:41:50 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:41:53 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+22:41:53 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:41:56 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:45:27 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+22:45:27 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+22:45:29 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:45:41 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:46:54 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:47:30 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+22:47:30 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:47:34 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:49:24 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:49:30 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:49:36 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:49:47 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:49:52 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:50:25 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:50:51 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+22:51:31 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+22:51:31 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:01:27 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:02:47 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:02:48 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:03:40 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:03:40 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:03:43 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:03:55 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:05:07 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:05:07 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:05:10 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:08:10 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:08:10 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:08:14 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:09:31 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:09:31 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:09:41 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:09:41 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:09:44 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:10:33 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:10:33 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:103:3: error: ‘len’ was not declared in this scope
+   len[0]++;
+   ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:10:36 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:103:3: error: ‘len’ was not declared in this scope
+   len[0]++;
+   ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:10:41 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:10:41 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:103:3: error: ‘len’ was not declared in this scope
+   len[0]++;
+   ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:10:52 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:10:52 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:10:55 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:13:30 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:13:30 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+In file included from /usr/include/c++/5/algorithm:62:0,
+                 from ../decomposition.cpp:19:
+/usr/include/c++/5/bits/stl_algo.h: In instantiation of ‘_Funct std::for_each(_IIter, _IIter, _Funct) [with _IIter = __gnu_cxx::__normal_iterator<double*, std::vector<double> >; _Funct = std::ostream_iterator<double>]’:
+../decomposition.cpp:112:69:   required from here
+/usr/include/c++/5/bits/stl_algo.h:3767:5: error: no match for call to ‘(std::ostream_iterator<double>) (double&)’
+  __f(*__first);
+     ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:13:47 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:13:48 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:13:50 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:14:44 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:14:44 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:113:31: error: invalid use of non-static member function
+  means[0].resize(mean.size,0.0);
+                               ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:14:58 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:14:58 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:15:01 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:15:29 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:15:29 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:15:33 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:16:46 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:16:46 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:16:52 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:17:21 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:17:21 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:17:26 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:18:14 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:18:15 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:18:17 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:18:24 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:18:24 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:18:26 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:20:01 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:20:01 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:20:04 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:22:42 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:22:42 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:22:45 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:23:32 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:23:33 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:23:35 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:24:17 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:24:17 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:116:25: error: name lookup of ‘i’ changed for ISO ‘for’ scoping [-fpermissive]
+   cout << "i_num = " << i << endl;
+                         ^
+../decomposition.cpp:116:25: note: (if you use ‘-fpermissive’ G++ will accept your code)
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:24:23 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:24:23 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:24:26 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:24:31 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:27:54 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:27:54 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+makefile:44: recipe for target 'Decomposition' failed
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+make: *** [Decomposition] Error 1
+15:28:16 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:28:16 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+makefile:44: recipe for target 'Decomposition' failed
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+make: *** [Decomposition] Error 1
+15:28:18 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:28:18 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+makefile:44: recipe for target 'Decomposition' failed
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+make: *** [Decomposition] Error 1
+15:30:49 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:30:49 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In function ‘int main()’:
+../decomposition.cpp:188:13: error: ‘assert’ was not declared in this scope
+  assert(true);
+             ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:31:09 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:31:09 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+makefile:44: recipe for target 'Decomposition' failed
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+make: *** [Decomposition] Error 1
+15:31:22 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:31:22 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+make: *** [Decomposition] Error 1
+makefile:44: recipe for target 'Decomposition' failed
+15:31:57 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:31:57 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+makefile:44: recipe for target 'Decomposition' failed
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+make: *** [Decomposition] Error 1
+15:33:14 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:33:14 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+makefile:44: recipe for target 'Decomposition' failed
+make: *** [Decomposition] Error 1
+15:34:25 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:34:25 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+makefile:44: recipe for target 'Decomposition' failed
+make: *** [Decomposition] Error 1
+15:34:33 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:34:33 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+make: *** [Decomposition] Error 1
+makefile:44: recipe for target 'Decomposition' failed
+15:34:44 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:34:44 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+makefile:44: recipe for target 'Decomposition' failed
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+make: *** [Decomposition] Error 1
+15:35:02 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:35:02 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+makefile:44: recipe for target 'Decomposition' failed
+make: *** [Decomposition] Error 1
+15:35:05 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:35:05 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+make: *** [Decomposition] Error 1
+makefile:44: recipe for target 'Decomposition' failed
+15:35:06 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:35:06 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+makefile:44: recipe for target 'Decomposition' failed
+make: *** [Decomposition] Error 1
+15:35:07 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:35:07 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+/usr/bin/ld: /usr/lib/gcc/i686-linux-gnu/5/../../../i386-linux-gnu/crti.o: unrecognized relocation (0x2b) in section `.init'
+/usr/bin/ld: final link failed: Bad value
+collect2: error: ld returned 1 exit status
+make: *** [Decomposition] Error 1
+makefile:44: recipe for target 'Decomposition' failed
+15:36:06 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:36:06 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:36:13 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:36:13 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:36:14 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:36:51 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:36:51 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:36:56 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:37:04 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:37:04 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:37:08 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:39:18 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:39:18 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In function ‘int main()’:
+../decomposition.cpp:191:21: error: request for member ‘arr’ in ‘arr’, which is of non-class type ‘int [4]’
+  vector<int> iv(arr.arr+4);
+                     ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:39:31 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:39:31 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:39:34 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:40:17 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:40:17 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In function ‘int main()’:
+../decomposition.cpp:197:43: error: missing template arguments before ‘(’ token
+  copy(iv.begin(),iv.end(),ostream_iterator(cout," "));cout << endl;
+                                           ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:40:25 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:40:25 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:40:28 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:42:52 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:42:52 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp:79:21: error: ‘template<class T, class V> struct Decomposition::print_map’ used without template parameters
+ void Decomposition::print_map::operator()(const T&x) const {
+                     ^
+../decomposition.cpp:79:49: error: ‘T’ does not name a type
+ void Decomposition::print_map::operator()(const T&x) const {
+                                                 ^
+../decomposition.cpp:79:54: error: non-member function ‘void operator()(const int&)’ cannot have cv-qualifier
+ void Decomposition::print_map::operator()(const T&x) const {
+                                                      ^
+../decomposition.cpp:79:54: error: ‘void operator()(const int&)’ must be a nonstatic member function
+../decomposition.cpp:69:9: error: ‘template<class T, class V> struct Decomposition::print_map’ is private
+  struct print_map{
+         ^
+../decomposition.cpp:79:21: error: within this context
+ void Decomposition::print_map::operator()(const T&x) const {
+                     ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:43:45 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:43:45 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp:80:21: error: ‘template<class T, class V> struct Decomposition::print_map’ used without template parameters
+ void Decomposition::print_map::operator()(const T&x) const {
+                     ^
+../decomposition.cpp:80:54: error: non-member function ‘void operator()(const T&)’ cannot have cv-qualifier
+ void Decomposition::print_map::operator()(const T&x) const {
+                                                      ^
+../decomposition.cpp:80:54: error: ‘void operator()(const T&)’ must be a nonstatic member function
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:45:20 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:45:20 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp:80:21: error: ‘template<class T, class V> struct Decomposition::print_map’ used without template parameters
+ void Decomposition::print_map::operator()(const T &x){
+                     ^
+../decomposition.cpp:80:53: error: ‘void operator()(const T&)’ must be a nonstatic member function
+ void Decomposition::print_map::operator()(const T &x){
+                                                     ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:50:02 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:50:02 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:50:22 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:50:22 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:50:25 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:51:20 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:51:20 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:126:28: error: ‘NUll’ was not declared in this scope
+   list<int>::iterator iter=NUll;
+                            ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:51:35 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:51:35 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+In file included from /usr/include/stdlib.h:32:0,
+                 from /usr/include/c++/5/cstdlib:72,
+                 from /usr/include/c++/5/bits/stl_algo.h:59,
+                 from /usr/include/c++/5/algorithm:62,
+                 from ../decomposition.cpp:19:
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:126:28: error: conversion from ‘int’ to non-scalar type ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ requested
+   list<int>::iterator iter=NULL;
+                            ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:51:43 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:51:43 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:126:28: error: ‘null’ was not declared in this scope
+   list<int>::iterator iter=null;
+                            ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:52:01 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:52:01 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:126:28: error: conversion from ‘int’ to non-scalar type ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ requested
+   list<int>::iterator iter=0;
+                            ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+15:52:44 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:52:44 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:53:26 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:53:26 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:54:00 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:54:00 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:54:04 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:54:18 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:54:18 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:54:21 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+15:54:31 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+15:54:31 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+15:54:34 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:00:11 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:00:11 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+16:00:14 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:00:48 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:00:48 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:00:50 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:01:37 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:01:37 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+16:01:40 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:02:10 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:02:10 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+16:02:13 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:02:34 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:02:34 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+16:02:37 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:34:23 **** Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:34:23 **** Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:34:29 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:36:45 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:36:45 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+16:36:48 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:38:46 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:38:46 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+16:38:49 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:39:03 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:39:03 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+16:39:06 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:39:43 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:39:43 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+16:39:45 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:40:19 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:40:19 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+16:40:22 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:42:58 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:42:58 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+16:43:00 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+16:55:48 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:55:48 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::split_class(const int&)’:
+../decomposition.cpp:111:18: error: ‘mean’ was not declared in this scope
+  means[i].resize(mean.size(),0.0);
+                  ^
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:156:8: error: ‘labels_num’ was not declared in this scope
+  while(labels_num++<labels_number){
+        ^
+make: *** [decomposition.o] Error 1
+subdir.mk:18: recipe for target 'decomposition.o' failed
+16:56:16 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:56:16 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::split_class(const int&)’:
+../decomposition.cpp:111:18: error: ‘mean’ was not declared in this scope
+  means[i].resize(mean.size(),0.0);
+                  ^
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:156:6: warning: unused variable ‘labels_num’ [-Wunused-variable]
+  int labels_num=0;
+      ^
+make: *** [decomposition.o] Error 1
+subdir.mk:18: recipe for target 'decomposition.o' failed
+16:57:51 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+16:57:51 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+16:57:53 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+17:48:57 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+17:48:57 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:156:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+17:49:00 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+19:52:04 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+19:52:04 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:156:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+19:52:08 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+19:55:18 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+19:55:18 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:156:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+19:55:20 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+19:56:20 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+19:56:20 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:156:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+19:56:22 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:10:22 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:10:22 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:158:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:10:24 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:12:58 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:12:58 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:161:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:13:01 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:13:51 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:13:52 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:161:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:13:55 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:19:31 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:19:31 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:169:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:19:33 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:20:51 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:20:51 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:169:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:20:54 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:21:21 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:21:21 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:169:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:21:23 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:26:10 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:26:10 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+../decomposition.cpp:174:47: error: cannot convert ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ to ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’ in initialization
+  list<int>::iterator *it=classes[l_num].begin();
+                                               ^
+../decomposition.cpp:175:27: error: no match for ‘operator[]’ (operand types are ‘std::vector<std::vector<double> >’ and ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’)
+  vector<double> mean(datas[*it].begin(),datas[*it].end());
+                           ^
+In file included from /usr/include/c++/5/vector:64:0,
+                 from ../decomposition.cpp:13:
+/usr/include/c++/5/bits/stl_vector.h:779:7: note: candidate: std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) [with _Tp = std::vector<double>; _Alloc = std::allocator<std::vector<double> >; std::vector<_Tp, _Alloc>::reference = std::vector<double>&; std::vector<_Tp, _Alloc>::size_type = unsigned int]
+       operator[](size_type __n) _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/5/bits/stl_vector.h:779:7: note:   no known conversion for argument 1 from ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ to ‘std::vector<std::vector<double> >::size_type {aka unsigned int}’
+/usr/include/c++/5/bits/stl_vector.h:794:7: note: candidate: std::vector<_Tp, _Alloc>::const_reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) const [with _Tp = std::vector<double>; _Alloc = std::allocator<std::vector<double> >; std::vector<_Tp, _Alloc>::const_reference = const std::vector<double>&; std::vector<_Tp, _Alloc>::size_type = unsigned int]
+       operator[](size_type __n) const _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/5/bits/stl_vector.h:794:7: note:   no known conversion for argument 1 from ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ to ‘std::vector<std::vector<double> >::size_type {aka unsigned int}’
+../decomposition.cpp:175:46: error: no match for ‘operator[]’ (operand types are ‘std::vector<std::vector<double> >’ and ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’)
+  vector<double> mean(datas[*it].begin(),datas[*it].end());
+                                              ^
+In file included from /usr/include/c++/5/vector:64:0,
+                 from ../decomposition.cpp:13:
+/usr/include/c++/5/bits/stl_vector.h:779:7: note: candidate: std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) [with _Tp = std::vector<double>; _Alloc = std::allocator<std::vector<double> >; std::vector<_Tp, _Alloc>::reference = std::vector<double>&; std::vector<_Tp, _Alloc>::size_type = unsigned int]
+       operator[](size_type __n) _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/5/bits/stl_vector.h:779:7: note:   no known conversion for argument 1 from ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ to ‘std::vector<std::vector<double> >::size_type {aka unsigned int}’
+/usr/include/c++/5/bits/stl_vector.h:794:7: note: candidate: std::vector<_Tp, _Alloc>::const_reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) const [with _Tp = std::vector<double>; _Alloc = std::allocator<std::vector<double> >; std::vector<_Tp, _Alloc>::const_reference = const std::vector<double>&; std::vector<_Tp, _Alloc>::size_type = unsigned int]
+       operator[](size_type __n) const _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/5/bits/stl_vector.h:794:7: note:   no known conversion for argument 1 from ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ to ‘std::vector<std::vector<double> >::size_type {aka unsigned int}’
+../decomposition.cpp:176:13: error: no match for ‘operator!=’ (operand types are ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’ and ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’)
+  for(**it;it!=classes[l_num].end();++it){
+             ^
+In file included from /usr/include/c++/5/iosfwd:40:0,
+                 from /usr/include/c++/5/ios:38,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/postypes.h:221:5: note: candidate: template<class _StateT> bool std::operator!=(const std::fpos<_StateT>&, const std::fpos<_StateT>&)
+     operator!=(const fpos<_StateT>& __lhs, const fpos<_StateT>& __rhs)
+     ^
+/usr/include/c++/5/bits/postypes.h:221:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::fpos<_StateT>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:64:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/stl_pair.h:227:5: note: candidate: template<class _T1, class _T2> bool std::operator!=(const std::pair<_T1, _T2>&, const std::pair<_T1, _T2>&)
+     operator!=(const pair<_T1, _T2>& __x, const pair<_T1, _T2>& __y)
+     ^
+/usr/include/c++/5/bits/stl_pair.h:227:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::pair<_T1, _T2>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/stl_iterator.h:304:5: note: candidate: template<class _Iterator> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_Iterator>&)
+     operator!=(const reverse_iterator<_Iterator>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:304:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::reverse_iterator<_Iterator>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/bits/stl_algobase.h:67:0,
+                 from /usr/include/c++/5/bits/char_traits.h:39,
+                 from /usr/include/c++/5/ios:40,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/stl_iterator.h:354:5: note: candidate: template<class _IteratorL, class _IteratorR> bool std::operator!=(const std::reverse_iterator<_Iterator>&, const std::reverse_iterator<_IteratorR>&)
+     operator!=(const reverse_iterator<_IteratorL>& __x,
+     ^
+/usr/include/c++/5/bits/stl_iterator.h:354:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::reverse_iterator<_Iterator>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/string:41:0,
+                 from /usr/include/c++/5/bits/locale_classes.h:40,
+                 from /usr/include/c++/5/bits/ios_base.h:41,
+                 from /usr/include/c++/5/ios:42,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/allocator.h:140:5: note: candidate: template<class _T1, class _T2> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_T2>&)
+     operator!=(const allocator<_T1>&, const allocator<_T2>&)
+     ^
+/usr/include/c++/5/bits/allocator.h:140:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::allocator<_CharT>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/string:41:0,
+                 from /usr/include/c++/5/bits/locale_classes.h:40,
+                 from /usr/include/c++/5/bits/ios_base.h:41,
+                 from /usr/include/c++/5/ios:42,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/allocator.h:146:5: note: candidate: template<class _Tp> bool std::operator!=(const std::allocator<_CharT>&, const std::allocator<_CharT>&)
+     operator!=(const allocator<_Tp>&, const allocator<_Tp>&)
+     ^
+/usr/include/c++/5/bits/allocator.h:146:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::allocator<_CharT>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/string:52:0,
+                 from /usr/include/c++/5/bits/locale_classes.h:40,
+                 from /usr/include/c++/5/bits/ios_base.h:41,
+                 from /usr/include/c++/5/ios:42,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/basic_string.h:4950:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
+subdir.mk:18: recipe for target 'decomposition.o' failed
+     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/5/bits/basic_string.h:4950:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/string:52:0,
+                 from /usr/include/c++/5/bits/locale_classes.h:40,
+                 from /usr/include/c++/5/bits/ios_base.h:41,
+                 from /usr/include/c++/5/ios:42,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/basic_string.h:4962:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const _CharT*, const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&)
+     operator!=(const _CharT* __lhs,
+     ^
+/usr/include/c++/5/bits/basic_string.h:4962:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ is not derived from ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/string:52:0,
+                 from /usr/include/c++/5/bits/locale_classes.h:40,
+                 from /usr/include/c++/5/bits/ios_base.h:41,
+                 from /usr/include/c++/5/ios:42,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/basic_string.h:4974:5: note: candidate: template<class _CharT, class _Traits, class _Alloc> bool std::operator!=(const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>&, const _CharT*)
+     operator!=(const basic_string<_CharT, _Traits, _Alloc>& __lhs,
+     ^
+/usr/include/c++/5/bits/basic_string.h:4974:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::__cxx11::basic_string<_CharT, _Traits, _Alloc>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/bits/locale_facets.h:48:0,
+                 from /usr/include/c++/5/bits/basic_ios.h:37,
+                 from /usr/include/c++/5/ios:44,
+                 from /usr/include/c++/5/ostream:38,
+                 from /usr/include/c++/5/iostream:39,
+                 from ../decomposition.cpp:8:
+/usr/include/c++/5/bits/streambuf_iterator.h:210:5: note: candidate: template<class _CharT, class _Traits> bool std::operator!=(const std::istreambuf_iterator<_CharT, _Traits>&, const std::istreambuf_iterator<_CharT, _Traits>&)
+     operator!=(const istreambuf_iterator<_CharT, _Traits>& __a,
+     ^
+/usr/include/c++/5/bits/streambuf_iterator.h:210:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::istreambuf_iterator<_CharT, _Traits>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/vector:64:0,
+                 from ../decomposition.cpp:13:
+/usr/include/c++/5/bits/stl_vector.h:1535:5: note: candidate: template<class _Tp, class _Alloc> bool std::operator!=(const std::vector<_Tp, _Alloc>&, const std::vector<_Tp, _Alloc>&)
+     operator!=(const vector<_Tp, _Alloc>& __x, const vector<_Tp, _Alloc>& __y)
+     ^
+/usr/include/c++/5/bits/stl_vector.h:1535:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::vector<_Tp, _Alloc>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/list:63:0,
+                 from ../decomposition.cpp:14:
+/usr/include/c++/5/bits/stl_list.h:291:5: note: candidate: template<class _Val> bool std::operator!=(const std::_List_iterator<_Tp>&, const std::_List_const_iterator<_Val>&)
+     operator!=(const _List_iterator<_Val>& __x,
+     ^
+/usr/include/c++/5/bits/stl_list.h:291:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::_List_iterator<_Tp>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/list:63:0,
+                 from ../decomposition.cpp:14:
+/usr/include/c++/5/bits/stl_list.h:1843:5: note: candidate: template<class _Tp, class _Alloc> bool std::operator!=(const std::__cxx11::list<_Tp, _Alloc>&, const std::__cxx11::list<_Tp, _Alloc>&)
+     operator!=(const list<_Tp, _Alloc>& __x, const list<_Tp, _Alloc>& __y)
+     ^
+/usr/include/c++/5/bits/stl_list.h:1843:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::__cxx11::list<_Tp, _Alloc>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/map:60:0,
+                 from ../decomposition.cpp:15:
+/usr/include/c++/5/bits/stl_tree.h:330:5: note: candidate: template<class _Val> bool std::operator!=(const std::_Rb_tree_iterator<_Tp>&, const std::_Rb_tree_const_iterator<_Val>&)
+     operator!=(const _Rb_tree_iterator<_Val>& __x,
+     ^
+/usr/include/c++/5/bits/stl_tree.h:330:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::_Rb_tree_iterator<_Tp>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/map:60:0,
+                 from ../decomposition.cpp:15:
+/usr/include/c++/5/bits/stl_tree.h:1293:5: note: candidate: template<class _Key, class _Val, class _KeyOfValue, class _Compare, class _Alloc> bool std::operator!=(const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>&, const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>&)
+     operator!=(const _Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/5/bits/stl_tree.h:1293:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::_Rb_tree<_Key, _Val, _KeyOfValue, _Compare, _Alloc>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/map:61:0,
+                 from ../decomposition.cpp:15:
+/usr/include/c++/5/bits/stl_map.h:1097:5: note: candidate: template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator!=(const std::map<_Key, _Tp, _Compare, _Alloc>&, const std::map<_Key, _Tp, _Compare, _Alloc>&)
+     operator!=(const map<_Key, _Tp, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/5/bits/stl_map.h:1097:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::map<_Key, _Tp, _Compare, _Alloc>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/map:62:0,
+                 from ../decomposition.cpp:15:
+/usr/include/c++/5/bits/stl_multimap.h:998:5: note: candidate: template<class _Key, class _Tp, class _Compare, class _Alloc> bool std::operator!=(const std::multimap<_Key, _Tp, _Compare, _Alloc>&, const std::multimap<_Key, _Tp, _Compare, _Alloc>&)
+     operator!=(const multimap<_Key, _Tp, _Compare, _Alloc>& __x,
+     ^
+/usr/include/c++/5/bits/stl_multimap.h:998:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::multimap<_Key, _Tp, _Compare, _Alloc>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+In file included from /usr/include/c++/5/iterator:66:0,
+                 from ../decomposition.cpp:17:
+/usr/include/c++/5/bits/stream_iterator.h:137:5: note: candidate: template<class _Tp, class _CharT, class _Traits, class _Dist> bool std::operator!=(const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>&, const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>&)
+     operator!=(const istream_iterator<_Tp, _CharT, _Traits, _Dist>& __x,
+     ^
+/usr/include/c++/5/bits/stream_iterator.h:137:5: note:   template argument deduction/substitution failed:
+../decomposition.cpp:176:34: note:   mismatched types ‘const std::istream_iterator<_Tp, _CharT, _Traits, _Dist>’ and ‘std::__cxx11::list<int>::iterator* {aka std::_List_iterator<int>*}’
+  for(**it;it!=classes[l_num].end();++it){
+                                  ^
+../decomposition.cpp:177:18: error: no match for ‘operator[]’ (operand types are ‘std::vector<std::vector<double> >’ and ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’)
+   transform(datas[*it].begin(),datas[*it].end(),mean.begin(),mean.begin(),plus<double>());
+                  ^
+In file included from /usr/include/c++/5/vector:64:0,
+                 from ../decomposition.cpp:13:
+/usr/include/c++/5/bits/stl_vector.h:779:7: note: candidate: std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) [with _Tp = std::vector<double>; _Alloc = std::allocator<std::vector<double> >; std::vector<_Tp, _Alloc>::reference = std::vector<double>&; std::vector<_Tp, _Alloc>::size_type = unsigned int]
+       operator[](size_type __n) _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/5/bits/stl_vector.h:779:7: note:   no known conversion for argument 1 from ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ to ‘std::vector<std::vector<double> >::size_type {aka unsigned int}’
+/usr/include/c++/5/bits/stl_vector.h:794:7: note: candidate: std::vector<_Tp, _Alloc>::const_reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) const [with _Tp = std::vector<double>; _Alloc = std::allocator<std::vector<double> >; std::vector<_Tp, _Alloc>::const_reference = const std::vector<double>&; std::vector<_Tp, _Alloc>::size_type = unsigned int]
+       operator[](size_type __n) const _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/5/bits/stl_vector.h:794:7: note:   no known conversion for argument 1 from ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ to ‘std::vector<std::vector<double> >::size_type {aka unsigned int}’
+../decomposition.cpp:177:37: error: no match for ‘operator[]’ (operand types are ‘std::vector<std::vector<double> >’ and ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’)
+   transform(datas[*it].begin(),datas[*it].end(),mean.begin(),mean.begin(),plus<double>());
+                                     ^
+In file included from /usr/include/c++/5/vector:64:0,
+                 from ../decomposition.cpp:13:
+/usr/include/c++/5/bits/stl_vector.h:779:7: note: candidate: std::vector<_Tp, _Alloc>::reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) [with _Tp = std::vector<double>; _Alloc = std::allocator<std::vector<double> >; std::vector<_Tp, _Alloc>::reference = std::vector<double>&; std::vector<_Tp, _Alloc>::size_type = unsigned int]
+       operator[](size_type __n) _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/5/bits/stl_vector.h:779:7: note:   no known conversion for argument 1 from ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ to ‘std::vector<std::vector<double> >::size_type {aka unsigned int}’
+/usr/include/c++/5/bits/stl_vector.h:794:7: note: candidate: std::vector<_Tp, _Alloc>::const_reference std::vector<_Tp, _Alloc>::operator[](std::vector<_Tp, _Alloc>::size_type) const [with _Tp = std::vector<double>; _Alloc = std::allocator<std::vector<double> >; std::vector<_Tp, _Alloc>::const_reference = const std::vector<double>&; std::vector<_Tp, _Alloc>::size_type = unsigned int]
+       operator[](size_type __n) const _GLIBCXX_NOEXCEPT
+       ^
+/usr/include/c++/5/bits/stl_vector.h:794:7: note:   no known conversion for argument 1 from ‘std::__cxx11::list<int>::iterator {aka std::_List_iterator<int>}’ to ‘std::vector<std::vector<double> >::size_type {aka unsigned int}’
+../decomposition.cpp:179:83: error: ‘len’ was not declared in this scope
+  transform(mean.begin(),mean.end(),means[l_num].begin(),bind2nd(divides<double>(),len[l_num]));
+                                                                                   ^
+make: *** [decomposition.o] Error 1
+20:27:24 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:27:25 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+../decomposition.cpp:176:8: error: invalid type argument of unary ‘*’ (have ‘int’)
+  for(**it;it!=classes[l_num].end();++it){
+        ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+20:27:35 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:27:35 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+../decomposition.cpp:176:8: error: invalid type argument of unary ‘*’ (have ‘int’)
+  for(**it;it!=classes[l_num].end();++it){
+        ^
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+20:27:55 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:27:55 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:27:58 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:28:24 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:28:24 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:28:28 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:28:48 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:28:48 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:28:52 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:30:24 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:30:24 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+../decomposition.cpp:181:8: error: name lookup of ‘i’ changed for ISO ‘for’ scoping [-fpermissive]
+  means[i].resize(mean.size(),0.0);
+        ^
+../decomposition.cpp:181:8: note: (if you use ‘-fpermissive’ G++ will accept your code)
+subdir.mk:18: recipe for target 'decomposition.o' failed
+make: *** [decomposition.o] Error 1
+20:30:37 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:30:37 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+../decomposition.cpp:182:42: error: name lookup of ‘i’ changed for ISO ‘for’ scoping [-fpermissive]
+  transform(mean.begin(),mean.end(),means[i].begin(),bind2nd(divides<double>(),lens[l_num]));
+                                          ^
+../decomposition.cpp:182:42: note: (if you use ‘-fpermissive’ G++ will accept your code)
+make: *** [decomposition.o] Error 1
+subdir.mk:18: recipe for target 'decomposition.o' failed
+20:30:46 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:30:46 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:30:49 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:32:42 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:32:42 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:32:45 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:33:14 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:33:14 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:33:20 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:33:20 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:33:23 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:33:45 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:33:45 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:33:50 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:34:16 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:34:16 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:34:19 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.
+20:35:11 **** Incremental Build of configuration Debug for project CMeans ****
+make all 
+make: Nothing to be done for 'all'.
+20:35:11 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+Building file: ../decomposition.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"decomposition.d" -MT"decomposition.o" -o "decomposition.o" "../decomposition.cpp"
+../decomposition.cpp: In member function ‘void Decomposition::run()’:
+../decomposition.cpp:167:25: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+    if(classes[j].size() > max_size){
+                         ^
+Finished building: ../decomposition.cpp
+ 
+Building target: Decomposition
+Invoking: GCC C++ Linker
+g++  -o "Decomposition"  ./decomposition.o   
+Finished building target: Decomposition
+ 
+20:35:13 **** Incremental Build of configuration Debug for project Decomposition ****
+make all 
+make: Nothing to be done for 'all'.

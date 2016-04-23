@@ -1,0 +1,250 @@
+/*
+ * decomposition.cpp
+ *
+ *  Created on: Apr 22, 2016
+ *      Author: huaa
+ */
+
+#include <iostream>
+#include <sstream>
+#include <fstream>
+
+#include <string>
+#include <vector>
+#include <list>
+#include <map>
+
+#include <iterator>
+#include <functional>
+#include <algorithm>
+#include <numeric>
+
+#include <cassert>
+
+using namespace std;
+
+//将字符串按特定分割字符串分割保存为向量
+void split(std::string& s, std::string& delim, std::vector<std::string>* ret) {
+	size_t last = 0;
+	size_t index = s.find_first_of(delim, last);
+	ret->clear();
+	while (index != std::string::npos) {
+		ret->push_back(s.substr(last, index - last));
+		last = index + 1;
+		index = s.find_first_of(delim, last);
+	}
+	if (index - last > 0) {
+		ret->push_back(s.substr(last, index - last));
+	}
+}
+
+void stod(vector<string>::iterator beg,vector<string>::iterator end,vector<double> &result){
+	stringstream ss;
+	double data;
+	while(beg != end){
+		ss << *beg;
+		ss >> data;
+		result.push_back(data);
+		beg++;
+		ss.clear();
+	}
+}
+
+class Decomposition {
+	int features_number;
+	int labels_number;
+	int iterator_number;
+private :
+	vector<int> lens;//every class length
+	map<int, list<int> > classes;// index of classes
+	map<int, vector<double> > means;//every class average value
+	vector<vector<double> > datas;
+	vector<string> labels;
+	double E(const vector<double> &v1,
+			const vector<double> &v2,
+			const int &N1, const int &N2);
+	void addSample(vector<double> &mean,const vector<double> &x,const int &len);
+	void delSample(vector<double> &means,const vector<double> &x,const int &len);
+	void split_class(const int &i,const int &j);
+	template<class T,class V>
+	struct print_map{
+		void operator()(const T &x){
+			cout << x.first << ":";
+			copy(x.second.begin(), x.second.end(),ostream_iterator<V>(cout ," "));
+			cout << endl;
+		}
+	};
+public :
+	Decomposition();
+	void readfile(const string &filename);
+	void run();
+	void print_classes();
+	void print_means();
+};
+
+void Decomposition::addSample(vector<double> &mean,const vector<double> &x,const int &len){
+	if(len==0){
+		fill(mean.begin(),mean.end(),0.0);
+		return ;
+	}
+	vector<double> res;
+	transform(mean.begin(),mean.end(),x.begin(),back_inserter(res),minus<double>());
+	transform(res.begin(),res.end(),res.begin(),bind2nd(divides<double>(),len));
+	transform(mean.begin(),mean.end(),res.begin(),mean.begin(),minus<double>());
+}
+void Decomposition::delSample(vector<double> &mean,const vector<double> &x,const int &len){
+	if(len==0){
+		fill(mean.begin(),mean.end(),0.0);
+		return ;
+	}
+	vector<double> res;
+	transform(mean.begin(),mean.end(),x.begin(),back_inserter(res),minus<double>());
+	transform(res.begin(),res.end(),res.begin(),bind2nd(divides<double>(),len));
+	transform(mean.begin(),mean.end(),res.begin(),mean.begin(),plus<double>());
+}
+
+Decomposition::Decomposition():
+		features_number(0),
+		labels_number(3),
+		iterator_number(100) {
+	classes.clear();
+	means.clear();
+	lens.resize(labels_number,0);//initialize lens equal 0
+	datas.clear();
+	labels.clear();
+}
+
+void Decomposition::split_class(const int &i,const int &j){
+	list<int>::iterator it=classes[i].begin();
+	vector<double> mean(datas[*it].begin(),datas[*it].end());
+	for(++it;it!=classes[i].end();it++){
+		transform(datas[*it].begin(),datas[*it].end(),mean.begin(),mean.begin(),plus<double>());
+	}
+	means[i].resize(mean.size(),0.0);
+	transform(mean.begin(),mean.end(),means[i].begin(),bind2nd(divides<double>(),lens[i]));
+	means[j].resize(mean.size(),0.0);
+	double E_MAX = 0.0;
+	int i_num=0;
+	while(i_num++<this->iterator_number){
+		list<int>::iterator iter=classes[i].end();
+		double e_max = 0.0;
+		double e = 0.0;
+		for(list<int>::iterator it=classes[i].begin();it!=classes[i].end();it++){
+			vector<double> x(datas[*it].begin(),datas[*it].end());
+			delSample(means[i],x,lens[i]-1);
+			addSample(means[j],x,lens[j]+1);
+			e=E(means[i],means[j],lens[i]-1,lens[j]+1);
+			if(e>e_max){
+				e_max=e;
+				iter=it;
+			}
+			delSample(means[j],x,lens[j]-1);//restore means[i] and means[j]
+			addSample(means[i],x,lens[i]+1);
+		}
+		if(E_MAX < e_max)
+			E_MAX = e_max;
+		else
+			break;
+		vector<double> x(datas[*iter].begin(),datas[*iter].end());
+		classes[j].push_back(*iter);
+		classes[i].erase(iter);
+		lens[j]++;
+		lens[i]--;
+		delSample(means[i],x,lens[i]-1);
+		addSample(means[j],x,lens[j]+1);
+	}
+}
+void Decomposition::run(){
+	for(int i=0;i<features_number;i++){//initialize ,first class contain all sample
+		classes[0].push_back(i);
+		lens[0]++;
+	}
+	int l_num=0;
+	while(l_num++<this->labels_number-1){
+		int max_size=0;
+		int i=0;
+		for(int j=0;j<l_num;j++){//find the biggest size classes and split it
+			if(classes[j].size() > max_size){
+				max_size=classes[j].size();
+				i=j;
+			}
+		}
+		split_class(i,l_num);
+	}
+	list<int>::iterator *it=classes[l_num].begin();
+	vector<double> mean(datas[*it].begin(),datas[*it].end());
+	for(**it;it!=classes[l_num].end();++it){
+		transform(datas[*it].begin(),datas[*it].end(),mean.begin(),mean.begin(),plus<double>());
+	}
+	transform(mean.begin(),mean.end(),means[l_num].begin(),bind2nd(divides<double>(),len[l_num]));
+}
+
+double Decomposition::E(const vector<double> &v1,
+		const vector<double> &v2,
+		const int &N1,const int &N2){
+	vector<double> res;
+	transform(v1.begin(),v1.end(),v2.begin(),back_inserter(res),minus<double>());
+	return inner_product(res.begin(),res.end(),res.begin(),0.0)*N1*N2/(N1+N2);
+}
+
+void Decomposition::print_classes(){
+	if(classes.size()==0){
+		cout << "classes is empty! " << endl;
+	}
+	for_each(classes.begin(),classes.end(),print_map<pair<int,list<int> >,int >());
+}
+void Decomposition::print_means(){
+	if(means.size() == 0){
+		cout << "means is empty! " << endl;
+	}
+	for_each(means.begin(),means.end(),print_map<pair<int,vector<double> >,double >());
+}
+void Decomposition::readfile(const string &filename){
+	ifstream input(filename.c_str());
+	if(!input){
+		cout << filename << " is not exist!" << endl;
+		return ;
+	}
+	vector<string> data;
+	vector<double> data_d;
+	string line = "";;
+	string delim = ",";
+	string tmp = "";
+	while(input >> line){
+		split(line,delim,&data);
+		tmp=data.back();
+		this->labels.push_back(tmp);
+		data.pop_back();
+		stod(data.begin(),data.end(),data_d);
+		this->datas.push_back(data_d);
+		this->features_number++;
+		data_d.clear();
+	}
+}
+
+int main(){
+	const string filename = "/home/huaa/workspace/partten_recognization/iris.data";
+	cout << "start..." << endl;
+	Decomposition dc;
+	dc.readfile(filename);
+	dc.run();
+	dc.print_classes();
+	dc.print_means();
+	cout << "end!" << endl;
+	{
+		assert(false);
+		int arr[4] = {1,2,3,4};
+		vector<int> iv(arr,arr+4);
+		vector<int> iv2;
+		vector<int>::iterator it=iv.begin();
+		it++;
+		iv2.push_back(*it);
+		cout << *iv.erase(it) << endl;
+		copy(iv.begin(),iv.end(),ostream_iterator<int>(cout," "));cout << endl;
+		cout << *iv2.begin() << endl;
+		cout << endl;
+	}
+	return 0;
+}
+
+
